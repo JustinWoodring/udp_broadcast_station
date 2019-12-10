@@ -66,7 +66,7 @@ fn init_broadcast(s: &mut Cursive, callsign : &str, broadcast_name : &str){
 	let die2 = die.clone();
 	
 	let broadcast = thread::spawn(move || {
-        let socket = UdpSocket::bind("10.0.0.72:1980").unwrap();
+        let socket = UdpSocket::bind("0.0.0.0:1980").unwrap();
 		socket.set_broadcast(true).expect("set_broadcast call failed");
 		loop{
 			sleep(std::time::Duration::new(2,0));
